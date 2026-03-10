@@ -122,3 +122,13 @@ curl -H "Content-Type: application/xml" \
      -X POST "https://jira.firma.com/rest/raven/1.0/import/execution/robot" \
      --data @output.xml
 ```
+
+## Paralelné spúšťanie
+```bash
+pip install robotframework-pabot
+```
+Spúšťanie : 
+```bash
+pabot --processes 2 --outputdir results tests/
+```
+Pri mobile testoch je paralelizácia limitovaná počtom zariadení. Jeden test potrebuje jedno zariadenie, takže paralelné spúšťanie vyžaduje viac emulátorov alebo fyzických zariadení. Framework by sa dal rozšíriť o device pool a dynamické prideľovanie zariadení, čo sa mi osvedčilo pri veľkých projektoch. 
